@@ -7,11 +7,11 @@ from neuron import sigmoid
 class Layer:
 
     def __init__(self, num_inputs, num_neurons):
-        # initialize the layer with random weights and zero biases
-
-        self.weights = np.random.randn(num_inputs , num_neurons)
-
-        self.biases = np.zeros(num_neurons)
+        
+        # Xavier / Glorot Initialization 
+        limit = np.sqrt(6 / (num_inputs + num_neurons))
+        self.weights = np.random.uniform(-limit, limit, (num_inputs, num_neurons))
+        self.biases = np.zeros((1, num_neurons))
 
 
 
