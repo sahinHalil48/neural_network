@@ -25,6 +25,8 @@ class Network:
         for layer in self.layers:
             current_output = layer.forward(previous_output)
 
+            previous_output = current_output
+
         return current_output
 
     def backward(self,delta,learning_rate):

@@ -37,6 +37,8 @@ class Layer:
 
         # shapes : inputs (N,D_in), weights (D_in,D_out) biases (1,D_out) => z,delta (N ,D_out)
 
+        delta = delta * (self.output * (1 - self.output)) # sigmoid derivative 
+
         weight_gradients = np.dot(self.inputs.T, delta)
 
         bias_gradient = delta 
