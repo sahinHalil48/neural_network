@@ -6,8 +6,7 @@ from sklearn.model_selection import train_test_split
 from loss import (
     mean_squared_error,
     mean_squared_error_derivative,
-    one_hot_encode,
-    sigmoid_derivative
+    one_hot_encode
 )
 
 from network import Network
@@ -53,7 +52,7 @@ def main():
             loss = mean_squared_error(predictions,target_vector)
             epoch_loss += loss
 
-            initial_delta = mean_squared_error_derivative(predictions,target_vector) * sigmoid_derivative(predictions)
+            initial_delta = mean_squared_error_derivative(predictions,target_vector)
 
             network.backward(initial_delta , learning_rate)
 
